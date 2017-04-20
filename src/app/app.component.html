@@ -1,6 +1,5 @@
 <div>
   <md-toolbar color="primary">
-
     {{title}}
   </md-toolbar>
   <md-sidenav-container>
@@ -14,9 +13,24 @@
           <button md-raised-button (click)="sidenav.close()">CLOSE</button>
         </md-tab>
       </md-tab-group>-->
-      <nav>
+      <nav align="center">
         <h3>Form Controls</h3>
       </nav>
+      <md-tab-group>
+        <md-tab label="Users">
+          <md-nav-list>
+            <md-list-item *ngFor="let user of users">
+              <md-icon svgIcon="avatars:{{user.avatar}}" class="avatar"></md-icon>
+              <span>{{user.name}}</span>
+            </md-list-item>
+          </md-nav-list>
+        </md-tab>
+        <md-tab label="Settings">
+        </md-tab>
+      </md-tab-group>
     </md-sidenav>
+    <div class="content">
+      Page Content
+    </div>
   </md-sidenav-container>
 </div>

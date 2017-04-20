@@ -6,8 +6,22 @@ md-sidenav {
   width: 320px;
 }
 
+.avatar {
+  overflow: hidden;
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+  margin: 12px;
+}
+
+/deep/ .mat-list-item-content {
+         height: auto !important;
+       }
+
+
 /*
 [md-raised-button] {
   width: 100%;
 }
 */
+
