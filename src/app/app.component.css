@@ -14,10 +14,17 @@ md-sidenav {
   margin: 12px;
 }
 
+.content {
+  padding: 12px;
+}
+
 /deep/ .mat-list-item-content {
          height: auto !important;
        }
 
+/deep/ .mat-tooltip{
+         font-size:25px;
+       }
 
 /*
 [md-raised-button] {

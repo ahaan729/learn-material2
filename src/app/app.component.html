@@ -19,7 +19,7 @@
       <md-tab-group>
         <md-tab label="Users">
           <md-nav-list>
-            <md-list-item *ngFor="let user of users">
+            <md-list-item *ngFor="let user of users" (click)="selectedUser = user">
               <md-icon svgIcon="avatars:{{user.avatar}}" class="avatar"></md-icon>
               <span>{{user.name}}</span>
             </md-list-item>
@@ -29,8 +29,22 @@
         </md-tab>
       </md-tab-group>
     </md-sidenav>
-    <div class="content">
-      Page Content
+    <div class="content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px">
+      <md-card fxFlex="80">
+        <md-card-content>
+          <md-icon svgIcon="avatars:{{selectedUser.avatar}}" class="avatar" mdTooltip="The Ugar Sugar Works Limited is a sugar factory. The Company is engaged in manufacture and sale of sugar, industrial and potable alcohol, and generation and distribution of electricity. The Company's segments include sugar, electricity, industrial alcohol and potable alcohol. It has two distilleries and Indian Made Liquor (IML) units. The Company manufactures various IML brands, including Old Castle Premium Whisky, U.S. Whisky, U.S. Brandy, U.S. Gin, Ugar XXX Rum, Gokak Falls Whisky, Milan Whisky, Hawk Gin and Gagarin Vodka. Its other distillery products include Ethanol, Rectified Spirit, Malt Spirit and Extra Neutral Alcohol. It manufactures white crystal sugar in various grades, such as M-30, S-30 and SS-30. Its sugar byproducts include bagasse, filter cake and final molasses. The Company generates power and steam by way of its 44-megawatt plant. Its plants are located at Ugarkhurd in Belgaum District and at Malli-Nagarhalli Village in Gulbarga District in the state of Karnataka."></md-icon>
+          <md-tooltip-component>
+            <md-icon svgIcon="avatars:{{selectedUser.avatar}}" class="avatar"></md-icon>
+          </md-tooltip-component>
+          <md-icon svgIcon="avatars:{{selectedUser.avatar}}" class="avatar" mdTooltip="Hello"></md-icon>
+          <h2>{{selectedUser.name}}</h2>
+          <p>{{selectedUser.details}}</p>
+        </md-card-content>
+      </md-card>
+      <md-card fxFlex fxLayout="column" fxLayoutGap="14px">
+        <md-slide-toggle [(ngModel)]="selectedUser.isAdmin">Is Admin</md-slide-toggle>
+        <md-slide-toggle [(ngModel)]="selectedUser.isCool">Is Cool</md-slide-toggle>
+      </md-card>
     </div>
   </md-sidenav-container>
 </div>
