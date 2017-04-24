@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { MdIconRegistry } from '@angular/material';
+import { MdDialog, MdIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import {DialogComponent} from './dialog/dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -73,10 +74,19 @@ export class AppComponent {
 
   selectedUser = this.users[0];
 
-  constructor(iconRegistry: MdIconRegistry, sanitizer: DomSanitizer) {
+  constructor(iconRegistry: MdIconRegistry, sanitizer: DomSanitizer, private dialog: MdDialog) {
     // To avoid XSS attacks, the URL needs to be trusted from inside of your application.
     const avatarsSafeUrl = sanitizer.bypassSecurityTrustResourceUrl('./assets/avatars.svg');
 
     iconRegistry.addSvgIconSetInNamespace('avatars', avatarsSafeUrl);
+  }
+
+  openAdminDialog() {
+    this.dialog.open(DialogComponent).afterClosed()
+      .filter(result => !!result)
+      .subscribe(user => {
+        this.users.push(user);
+        this.selectedUser = user;
+      });
   }
 }

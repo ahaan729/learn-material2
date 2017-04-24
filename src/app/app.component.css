@@ -18,12 +18,18 @@ md-sidenav {
   padding: 12px;
 }
 
-/deep/ .mat-list-item-content {
+.fab-button-right {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+}
+
+:host /deep/ .mat-list-item-content {
          height: auto !important;
        }
 
-/deep/ .mat-tooltip{
-         font-size:25px;
+:host /deep/ .mat-tooltip{
+         font-size:25px !important;
        }
 
 /*
